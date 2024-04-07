@@ -1,5 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router';
+import ProductAll from './page/ProductAll';
+import Login from './page/Login';
+import ProductDetail from './page/ProductDetail';
 
 
 /*
@@ -13,9 +16,11 @@ import './App.css';
 */
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Routes>
+        <Route path="/" element={<ProductAll />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/product/:id" element={<ProductDetail/>} />
+    </Routes>
   );
 }
 
