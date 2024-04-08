@@ -1,0 +1,91 @@
+.login-button {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-list {
+  display: flex;
+  list-style-type: none;
+  margin-top: 18px;
+  padding: 0;
+  position: relative;
+}
+
+.menu-list li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 1px;
+  width: 0;
+  background-color: red;
+  transition: width 0.3s ease-out, left 0.3s ease-out;
+}
+
+.menu-list li:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.menu-list li:hover {
+  font-weight: bold;
+}
+
+
+.menu-item {
+  padding: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-item:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: red;
+  
+}
+
+.menu-style {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-search {
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  align-items: center;
+  
+}
+
+.search-icon {
+  margin-right: 10px;
+  height: 20px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-right: 30px;
+  position: absolute;
+  right: 0;
+}
+
+.input-container input {
+  font-weight: bold;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  margin-left: 10px;
+}
