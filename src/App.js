@@ -1,9 +1,10 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
-import ProductAll from './page/ProductAll';
-import Login from './page/Login';
-import ProductDetail from './page/ProductDetail';
+
+import ProductDetail from './page/ProductDetailPage';
 import Navbar from './component/Navbar';
+import HomePage from './page/HomePage';
+import AboutPage from './page/AboutPage';
 
 
 /*
@@ -18,10 +19,13 @@ import Navbar from './component/Navbar';
 function App() {
   return (
     <div>
+      {/* 헤더 */}
       <Navbar />
+      
+      {/* 메인 */}
       <Routes>
-          <Route path="/" element={<ProductAll />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/product/:id" element={<ProductDetail/>} />
       </Routes>
     </div>
