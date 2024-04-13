@@ -1,10 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
 
-import ProductDetail from './page/ProductDetailPage';
+
 import Navbar from './component/Navbar';
-import HomePage from './page/HomePage';
-import AboutPage from './page/AboutPage';
+
+import ProductAll from './page/ProductAll';
+import Login from './page/Login';
+import ProductDetail from './page/ProductDetail';
 
 
 /*
@@ -24,9 +26,9 @@ function App() {
       
       {/* 메인 */}
       <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/product/:id" element={<ProductDetail/>} />
+          <Route path="/" element={<ProductAll />}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/product/:id" element  ={<ProductDetail/>} />
       </Routes>
     </div>
   );
