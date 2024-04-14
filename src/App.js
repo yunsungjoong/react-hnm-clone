@@ -7,7 +7,7 @@ import Navbar from './component/Navbar';
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 /*
 1. 전체상품페이지, 로그인, 상품상세페이지
