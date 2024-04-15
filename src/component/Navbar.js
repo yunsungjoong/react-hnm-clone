@@ -1,6 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
+
 const Navbar = () => {
     const menuList = [
         "여성",
@@ -17,11 +20,15 @@ const Navbar = () => {
             <div>
                 <div className="login-button">
                     <FontAwesomeIcon icon={faUser} />
-                    <div>로그인</div>
+                    <div>
+                       <Link to='/login' style={{ textDecoration : "none" }}>로그인</Link>
+                    </div>
                 </div>
             </div>
             <div className="nav-logo">
-                <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo"  />
+                <Link to='/' >
+                    <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo"  />
+                </Link>
             </div>
             <div className="menu-style">
                 <ul className="menu-list">

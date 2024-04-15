@@ -3,7 +3,7 @@ import React from 'react';
 const ProductCard = ({ item }) => {
     return (
         <div>
-            <img src={item?.img} alt='' />
+            <img className="product-img" src={item?.img} alt='' />
             <div>{item?.choice === true ? "choice" : ""}</div>
             <div>{item?.title}</div>
             <div>${item?.price}</div>

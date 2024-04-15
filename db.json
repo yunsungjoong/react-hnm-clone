@@ -139,6 +139,16 @@
             "new":false,
             "size":["S","M","L"]
 
+        },
+        {
+            "id":14,
+            "img":"https://noona-hnm.netlify.app/sweat-shirt.jpeg",
+            "title":"스웨트셔츠",
+            "price":29900,
+            "choice":false,
+            "new":false,
+            "size":["S","M","L"]
+
         }
     ]
 }

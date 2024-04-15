@@ -29,6 +29,11 @@
   transition: width 0.3s ease-out, left 0.3s ease-out;
 }
 
+.product-img {
+  width: 100%;
+  height: 100%;
+}
+
 .menu-list li:hover::after {
   width: 100%;
   left: 0;
@@ -88,3 +93,4 @@
   padding: 5px;
   margin-left: 10px;
 }
+

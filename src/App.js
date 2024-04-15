@@ -8,6 +8,7 @@ import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Slick from './component/Slick';
 
 /*
 1. 전체상품페이지, 로그인, 상품상세페이지
@@ -23,7 +24,7 @@ function App() {
     <div>
       {/* 헤더 */}
       <Navbar />
-      
+      <Slick />
       {/* 메인 */}
       <Routes>
           <Route path="/" element={<ProductAll />}/>
