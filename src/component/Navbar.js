@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -15,20 +15,24 @@ const Navbar = () => {
         "Sale",
         "지속 가능성"
     ];
+    const navigate = useNavigate()
+    const goToLogin = () => {
+        navigate('/login')
+    }
+
+    const goToMain = () => {
+        navigate('/')
+    }
     return (
         <div>
             <div>
-                <div className="login-button">
+                <div className="login-button" onClick={goToLogin}>
                     <FontAwesomeIcon icon={faUser} />
-                    <div>
-                       <Link to='/login' style={{ textDecoration : "none" }}>로그인</Link>
-                    </div>
+                    <div>로그인</div>
                 </div>
             </div>
-            <div className="nav-logo">
-                <Link to='/' >
-                    <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo"  />
-                </Link>
+            <div className="nav-logo" onClick={goToMain}>
+                <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo"  />
             </div>
             <div className="menu-style">
                 <ul className="menu-list">

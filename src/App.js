@@ -24,7 +24,7 @@ function App() {
     <div>
       {/* 헤더 */}
       <Navbar />
-      <Slick />
+      {/* <Slick /> */}
       {/* 메인 */}
       <Routes>
           <Route path="/" element={<ProductAll />}/>
