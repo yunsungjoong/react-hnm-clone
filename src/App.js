@@ -9,6 +9,7 @@ import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slick from './component/Slick';
+import { useState } from 'react';
 
 /*
 1. 전체상품페이지, 로그인, 상품상세페이지
@@ -20,6 +21,7 @@ import Slick from './component/Slick';
 7. 상품을 검색할 수 있다.
 */
 function App() {
+  const[authenticate, setAuthenticate] = useState(false) // true면 로그인이 . 됨false면 로그인이 안됨
   return (
     <div>
       {/* 헤더 */}
