@@ -2,16 +2,19 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
-const Login = () => {
+import { useNavigate } from 'react-router-dom';
+const Login = ({setAuthenticate}) => {
+
+    const navigate = useNavigate();
     const loginUser = (e) => {
         e.preventDefault()
         console.log("login user function issue")
+        setAuthenticate(true)
+        navigate('/')
     }
     return (
         <div>
         <Container>
-            
-                
                         <Form onSubmit={(e)=>loginUser(e)}>
                             <Form.Group className="mb-3"  controlId="formBasicEmail">
                                 <Form.Label>Email address</Form.Label>

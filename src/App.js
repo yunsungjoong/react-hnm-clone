@@ -9,7 +9,7 @@ import Login from './page/Login';
 import ProductDetail from './page/ProductDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slick from './component/Slick';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 /*
 1. 전체상품페이지, 로그인, 상품상세페이지
@@ -22,6 +22,9 @@ import { useState } from 'react';
 */
 function App() {
   const[authenticate, setAuthenticate] = useState(false) // true면 로그인이 . 됨false면 로그인이 안됨
+  useEffect(()=> {
+    console.log("AAA",authenticate)
+  },[authenticate])
   return (
     <div>
       {/* 헤더 */}
@@ -30,7 +33,7 @@ function App() {
       {/* 메인 */}
       <Routes>
           <Route path="/" element={<ProductAll />}/>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>} />
           <Route path="/product/:id" element  ={<ProductDetail/>} />
       </Routes>
     </div>
