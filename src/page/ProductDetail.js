@@ -1,26 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Container, Row, Col } from "react-bootstrap";
+
 
 const ProductDetail = () => {
     let {id} = useParams();
+    const [ product,setProduct] = useState(null)
     const getProductDetail = async() => {
-        let url = `http://localhost:4000/product/${id}`;
+        let url = `http://localhost:4000/products/${id}`;
         let response = await fetch(url);
-        let data= await response.json();
-        console.log(data);
+        let data= await response.json();        
+        console.log(data)
+        setProduct(data);
     }
     useEffect(() => {
         getProductDetail()
     }, []);
     return (
-        
         <Container>
             <Row>
-                <Col sm={6}>asd</Col>
-                <Col sm={6}>asd</Col>
+                <Col sm={6}>
+                    <img className="product-img" src={product?.img} alt=''  />
+                </Col>
+                <Col sm={6}>
+                    <div>{product?.title}</div>
+                    <div>{product?.price}</div>
+                </Col>
             </Row>
         </Container>
     );
