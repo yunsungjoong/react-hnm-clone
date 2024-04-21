@@ -25,23 +25,22 @@ const ProductDetail = () => {
                 <Col className="product-img"  sm={6}>
                     <img src={product?.img} alt=''  />
                 </Col>
-                <Col sm={6}>
+                <Col sm={6} >
                     <div>{product?.title}</div>
                     <div>₩ {product?.price}원</div>
-                    <div>{product?.color}</div>
+                    <div></div>
                     
-                    <div className="mb=10">
-                    <Form.Select size="sm">
+                    <div>
+                    <Form.Select className="mb-3">
                         <option>사이즈</option>
                         <option value="1">S</option>
                         <option value="2">M</option>
                         <option value="3">L</option>
                     </Form.Select>
                     </div>
-
                     <div className="d-grid gap-2">
                         <Button variant="danger" size="lg">
-                            Block level button
+                            구매하기
                         </Button>
                         
                     </div>
