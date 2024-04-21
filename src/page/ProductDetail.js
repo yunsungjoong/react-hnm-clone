@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import {Container, Row, Col } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 
 const ProductDetail = () => {
@@ -24,7 +27,24 @@ const ProductDetail = () => {
                 </Col>
                 <Col sm={6}>
                     <div>{product?.title}</div>
-                    <div>{product?.price}</div>
+                    <div>₩ {product?.price}원</div>
+                    <div>{product?.color}</div>
+                    
+                    <div className="mb=10">
+                    <Form.Select size="sm">
+                        <option>사이즈</option>
+                        <option value="1">S</option>
+                        <option value="2">M</option>
+                        <option value="3">L</option>
+                    </Form.Select>
+                    </div>
+
+                    <div className="d-grid gap-2">
+                        <Button variant="danger" size="lg">
+                            Block level button
+                        </Button>
+                        
+                    </div>
                 </Col>
             </Row>
         </Container>

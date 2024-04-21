@@ -3,13 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from 'react-router-dom';
-const Login = ({setAuthenticate}) => {
 
+const Login = ({setAuthenticate}) => {
     const navigate = useNavigate();
     const loginUser = (e) => {
-        e.preventDefault()
-        console.log("login user function issue")
-        setAuthenticate(true)
+        e.preventDefault();
+        setAuthenticate(true);
+        console.log("로그인 되었습니다.");
         navigate('/')
     }
     return (
@@ -32,7 +32,7 @@ const Login = ({setAuthenticate}) => {
                                 <Form.Check type="checkbox" label="Check me out" />
                             </Form.Group>
                             <Button variant="danger" type="submit">
-                                Submit
+                                로그인
                             </Button>
                         </Form>
               

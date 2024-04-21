@@ -6,7 +6,6 @@ import Navbar from './component/Navbar';
 
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
-import ProductDetail from './page/ProductDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slick from './component/Slick';
 import { useEffect, useState } from 'react';
@@ -22,14 +21,13 @@ import PrivateRoute from './route/PrivateRoute';
 7. 상품을 검색할 수 있다.
 */
 function App() {
-  const[authenticate, setAuthenticate] = useState(false) // true면 로그인이 . 됨false면 로그인이 안됨
+  const[authenticate, setAuthenticate] = useState(false) // true면 로그인이false면 로그인이 안됨
   useEffect(()=> {
-    console.log("AAA",authenticate)
   },[authenticate])
   return (
     <div>
       {/* 헤더 */}
-      <Navbar />
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       {/* <Slick /> */}
       {/* 메인 */}
       <Routes>
