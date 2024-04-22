@@ -32,6 +32,14 @@ const Navbar = ( {setAuthenticate, authenticate} ) => {
         goToMain();
 
     }
+
+    const search = (e) => {
+        if(e.key === "Enter"){
+            let keyword = e.target.value
+            
+            navigate(`/?q=${keyword}`)
+        }
+    };
     return (
         <div>
             <div>
@@ -61,7 +69,7 @@ const Navbar = ( {setAuthenticate, authenticate} ) => {
                 <div className="menu-search">
                     <div className="input-container">
                         <FontAwesomeIcon icon={faSearch} className='search-icon' />
-                        <input type="text" placeholder="Search" />
+                        <input type="text" onKeyUp={(e)=>search(e)} placeholder="Search" />
                     </div>
                 </div>
             </div>

@@ -32,7 +32,7 @@ const ProductDetail = () => {
                     
                     <div>
                     <Form.Select className="mb-3">
-                        <option>사이즈</option>
+                        <option>사이즈 선택</option>
                         <option value="1">S</option>
                         <option value="2">M</option>
                         <option value="3">L</option>
