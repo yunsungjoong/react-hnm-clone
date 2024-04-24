@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
-import { NavDropdown } from 'react-bootstrap'; // NavDropdown import 추가
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setAuthenticate, authenticate }) => {
@@ -74,19 +73,13 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                     <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo" />
                 </div>
                 <div className="menu-style">
-                    {isMobile ? (
-                        <NavDropdown title={<FontAwesomeIcon icon={faBars} />} id="basic-nav-dropdown"> {/* 햄버거 아이콘으로 드롭다운 메뉴 표시 */}
-                            {menuList.map((menu, index) => (
-                                <NavDropdown.Item key={index}>{menu}</NavDropdown.Item>
-                            ))}
-                        </NavDropdown>
-                    ) : (
+                    
                         <ul className="menu-list">
                             {menuList.map((menu, index) => (
                                 <li className="menu-item" key={index}>{menu}</li>
                             ))}
                         </ul>
-                    )}
+                    
                     <div className="menu-search">
                         <div className="input-container">
                             <FontAwesomeIcon icon={faSearch} className='search-icon' />
