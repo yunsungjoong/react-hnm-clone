@@ -73,7 +73,6 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                     <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo" />
                 </div>
                 <div className="menu-style">
-                    
                         <ul className="menu-list">
                             {menuList.map((menu, index) => (
                                 <li className="menu-item" key={index}>{menu}</li>
