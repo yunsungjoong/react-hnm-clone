@@ -16,21 +16,10 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
         "지속 가능성"
     ];
 
+    let [width, setWidth] = useState(0);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const mediaQuery = window.matchMedia('(max-width: 768px)');
-        setIsMobile(mediaQuery.matches);
-
-        const handleResize = () => {
-            setIsMobile(mediaQuery.matches);
-        };
-
-        mediaQuery.addListener(handleResize);
-        return () => {
-            mediaQuery.removeListener(handleResize);
-        };
-    }, []);
+    
 
     const goToLogin = () => {
         navigate('/login');
@@ -55,37 +44,55 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
 
     return (
         <div>
-            <div className="login-button" onClick={authenticate ? logout : goToLogin}>
-                {authenticate ? (
-                    <>
-                        <FontAwesomeIcon icon={faUser} />
-                        <div>로그아웃</div>
-                    </>
-                ) : (
-                    <>
-                        <FontAwesomeIcon icon={faUser} />
-                        <div>로그인</div>
-                    </>
-                )}
+            <div className="side-menu" style={{ width: width }}>
+                <button className="closebtn" onClick={() => setWidth(0)}>
+                    &times;
+                </button>
+                <div className="side-menu-list" id="menu-list">
+                    {menuList.map((menu, index) => (
+                    <button key={index}>{menu}</button>
+                    ))}
+                </div>
             </div>
-            <div>
-                <div className="nav-logo" onClick={goToMain}>
-                    <img width={130} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo" />
-                </div>
-                <div className="menu-style">
-                        <ul className="menu-list">
-                            {menuList.map((menu, index) => (
-                                <li className="menu-item" key={index}>{menu}</li>
-                            ))}
-                        </ul>
-                    
-                    <div className="menu-search">
-                        <div className="input-container">
-                            <FontAwesomeIcon icon={faSearch} className='search-icon' />
-                            <input type="text" onKeyUp={(e) => search(e)} placeholder="Search" />
-                        </div>
+            
+            <div className="nav-header">
+                    {/* 메뉴바 */}
+                    <div className="burger-menu hide">
+                        <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
                     </div>
-                </div>
+                    {/* 검색바 */}
+                    <div className="search-box">
+                        {/* input-container */}
+                        <FontAwesomeIcon icon={faSearch} className='search-icon' />
+                        <input type="text" placeholder="제품검색" onKeyUp={(e) => search(e)}  />
+                    </div>
+                    {authenticate ? (
+                        <div onClick={() => setAuthenticate(false)}>
+                            <FontAwesomeIcon icon={faUser} />
+                            <span>로그아웃</span>
+                        </div>
+                    ) : (
+                        <div onClick={() => navigate("/login")}>
+                            <FontAwesomeIcon icon={faUser} />
+                            <span>로그인</span>
+                        </div>
+                    )}
+                
+            </div>
+            <div className="nav-logo" onClick={goToMain}>
+                <img 
+                width={100} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo" />
+            </div>
+            <div className="menu-style">
+                <ul className="menu">
+                    {menuList.map((menu, index) => (
+                        <li>
+                            <a href="#" key={index}>
+                                {menu}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

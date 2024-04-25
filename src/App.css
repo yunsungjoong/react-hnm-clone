@@ -1,4 +1,23 @@
+
+
+body{
+  font-family: sans-serif;
+}
+
 /* Nav CSS */
+
+.nav-header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.nav-header * {
+  
+  margin-right : 10px;
+  margin-top: 25px;
+}
 
 .login-form {
   margin-top: 100px;
@@ -18,31 +37,56 @@
 .nav-logo {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
-.menu-list {
+/* 메뉴 */
+.menu {
   display: flex;
   list-style-type: none;
   margin-top: 18px;
-  padding: 0;
-  position: relative;
+  padding: 20;
 }
 
-.menu-list li::after {
+.menu li {
+  position: relative; /* 부모 요소로부터 상재적인 위치 설정 */
+}
+
+.menu li a {
+  text-decoration: none;
+  color: black;
+  margin-left: 22px;
+}
+
+.menu li:hover { /* 폰트 두껍게 */
+  font-weight: bold;
+}
+
+.menu li::after {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 14%;
   bottom: 0;
-  height: 1px;
+  height: 2px;
   width: 0;
   background-color: red;
-  transition: width 0.3s ease-out, left 0.3s ease-out;
+  transition: width 0.2s ease-out, left 0.3s ease-out;
+  
 }
 
+.menu li:hover::after {
+  width: 100%;
+}
+
+
 .card {
-  margin-bottom: 5px;
-  
+  border:none !important;
+  margin-bottom: 10px;
+}
+.card:hover{
+  transform: scale(1.1);
+  z-index: 1;
 }
 
 .product-cards {
@@ -56,21 +100,6 @@
   transform: scale(1.4);
 }
 
-
-.menu-list li:hover::after {
-  width: 100%;
-  left: 0;
-}
-
-.menu-list li:hover {
-  font-weight: bold;
-}
-
-.menu-item {
-  padding: 15px;
-  cursor: pointer;
-  position: relative;
-}
 
 .menu-item:hover::after {
   content: '';
@@ -87,34 +116,27 @@
   justify-content: center;
 }
 
-.menu-search {
-  display: flex;
-  justify-content: flex-end; /* 오른쪽 정렬 */
-  align-items: center;
-  
-}
-
 .search-icon {
-  margin-right: 10px;
+  margin-right: 5px;
   height: 20px;
 }
 
-.input-container {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  margin-right: 30px;
+.search-box {
+  border-bottom:  1px solid #ccc;
   position: absolute;
-  right: 0;
+  right: 20px;
+  padding: 5px;
 }
 
-.input-container input {
+.search-box input {
   font-weight: bold;
   border: none;
-  outline: none;
+  margin-left: 3px;
   background: transparent;
-  padding: 5px;
-  margin-left: 10px;
+}
+
+.search-box input:focus {
+  outline:none
 }
 
 .product-img {
@@ -125,4 +147,66 @@
 .product-img img {
   width: 50%;
   height: 100%;
+}
+
+.hide { /* 숨김 */
+  visibility: hidden;
+}
+
+@media screen and (max-width: 63rem) {
+  .hide {
+    visibility:visible;
+  }
+  .menu {
+    display: none;
+  }
+  .search-box{
+    display: none;
+  }
+}
+
+.side-menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: burlywood;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  z-index:2
+}
+.side-menu-list button {
+  margin: 5px;
+  border: none;
+  background: none;
+  width: 120px;
+}
+
+.side-menu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  border: none;
+  background: none;
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-list button:hover {
+  background-color: beige;
+  border-radius: 3px;
+} 
+
+
+.burger-menu{
+  margin-left: 20px;
 }
