@@ -4,7 +4,6 @@ import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ setAuthenticate, authenticate }) => {
-    const [isMobile, setIsMobile] = useState(false);
     const menuList = [
         "여성",
         "Divided",
@@ -18,22 +17,6 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
 
     let [width, setWidth] = useState(0);
     const navigate = useNavigate();
-
-    
-
-    const goToLogin = () => {
-        navigate('/login');
-    };
-
-    const goToMain = () => {
-        navigate('/');
-    };
-
-    const logout = () => {
-        console.log("로그아웃 되었습니다.");
-        setAuthenticate(false);
-        goToMain();
-    };
 
     const search = (e) => {
         if (e.key === "Enter") {
@@ -69,17 +52,17 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                     {authenticate ? (
                         <div onClick={() => setAuthenticate(false)}>
                             <FontAwesomeIcon icon={faUser} />
-                            <span>로그아웃</span>
+                            <span style={{ cursor:"pointer" }}>로그아웃</span>
                         </div>
                     ) : (
                         <div onClick={() => navigate("/login")}>
                             <FontAwesomeIcon icon={faUser} />
-                            <span>로그인</span>
+                            <span style={{ cursor:"pointer" }}>로그인</span>
                         </div>
                     )}
                 
             </div>
-            <div className="nav-logo" onClick={goToMain}>
+            <div className="nav-logo" onClick={() => navigate("/")}>
                 <img 
                 width={100} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/2560px-H%26M-Logo.svg.png" alt="HNM Logo" />
             </div>
