@@ -18,6 +18,13 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
     let [width, setWidth] = useState(0);
     const navigate = useNavigate();
 
+    const handleLogout = () => {
+        const confirmed = window.confirm("로그아웃하시겠습니까?");
+        if(confirmed) {
+            setAuthenticate(false);
+            navigate("/");
+        }
+    }
     const search = (e) => {
         if (e.key === "Enter") {
             let keyword = e.target.value;
@@ -50,7 +57,7 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                         <input type="text" placeholder="제품검색" onKeyUp={(e) => search(e)}  />
                     </div>
                     {authenticate ? (
-                        <div onClick={() => setAuthenticate(false)}>
+                        <div onClick={handleLogout}>
                             <FontAwesomeIcon icon={faUser} />
                             <span style={{ cursor:"pointer" }}>로그아웃</span>
                         </div>
