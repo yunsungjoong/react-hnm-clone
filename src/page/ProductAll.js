@@ -12,7 +12,8 @@ const ProductAll = () => {
     const getProduct = async () => {
         let searchQuery = query.get('q') || ""; // q라고 되어 있는 아이템을 가져와 넣는다.
         console.log("쿼리값은" , searchQuery)
-        let url = `http://localhost:4000/products?q=${searchQuery}`;
+        let url = `https://my-json-server.typicode.com/yunsungjoong/react-hnm-clone/products?q=${searchQuery}`;
+        // `http://localhost:4000/products?q=${searchQuery}`; 
         let response = await fetch(url);
         let data = await response.json();
         setProductList(data);
