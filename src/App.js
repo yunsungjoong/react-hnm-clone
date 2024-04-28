@@ -7,9 +7,10 @@ import Navbar from './component/Navbar';
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Slick from './component/Slick';
+
 import { useEffect, useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
+import Footer from './component/Footer';
 
 /*
 1. 전체상품페이지, 로그인, 상품상세페이지
@@ -37,6 +38,7 @@ function App() {
             path="/product/:id" 
             element  ={<PrivateRoute authenticate={authenticate}/>} />
       </Routes>
+      <Footer  />
     </div>
   );
 }
