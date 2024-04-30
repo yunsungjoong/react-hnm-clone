@@ -25,42 +25,36 @@ const Login = ({setAuthenticate}) => {
         
             
         <Container className="login">
-            <div>
-                <span>상품 상세페이지를 보려면 로그인하세요!</span>
-            </div>
-            
-                <Form onSubmit={(e)=>loginUser(e)}>
-                    <Form.Group className="mb-3"  controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control 
-                            type="email" 
-                            placeholder="E-mail을 작성해 주세요." 
-                            value={email}
-                            onChange={(e) => {setEmail(e.target.value)}}
-                        />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
-                    </Form.Group>
+            <Form onSubmit={(e)=>loginUser(e)}>
+                <Form.Group className="mb-3"  controlId="formBasicEmail">
+                    <Form.Label>Email Address</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        placeholder="E-mail을 작성해 주세요." 
+                        value={email}
+                        onChange={(e) => {setEmail(e.target.value)}}
+                    />
+                    <Form.Text className="text-muted">
+                        저희 H&M은 절대 고객의 개인정보를 공개 및 공유하지 않습니다.
+                    </Form.Text>
+                </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control 
-                            type="password" 
-                            placeholder="비밀번호를 작성해 주세요." 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                            
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="로그인 유지" />
-                    </Form.Group>
-                    <Button variant="danger" type="submit">
-                        로그인
-                    </Button>
-                </Form>
-            
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control 
+                        type="password" 
+                        placeholder="비밀번호를 작성해 주세요." 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="로그인 유지" />
+                </Form.Group>
+                <Button variant="danger" type="submit">
+                    로그인
+                </Button>
+            </Form>
         </Container>
         
     );

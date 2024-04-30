@@ -1,4 +1,4 @@
-
+@charset "utf-8";
 :root {
   --base-default: #faf9f8;
   --base-dark: #8d8986;
@@ -7,11 +7,27 @@
   --text-light: #f1a10c;
 }
 
-body{
+body {
   min-height: 100vh;
   min-height: 100dvh;
   background-color: var(--base-default);
 }
+
+.login {
+  box-sizing: border-box;
+  max-width: 600px;
+  min-height: calc(100vh - 350px);
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+.login .form-label {
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.login .form-control {
+  margin-bottom: 10px;
+}
+
 
 /* Nav CSS */
 
@@ -28,20 +44,7 @@ body{
   margin-top: 25px;
 }
 
-.login {
-    box-sizing: border-box;
-    max-width: 800px;
-    min-height: calc(100vh - 350px);
-    padding-top: 150px;
-    padding-bottom: 100px;
-}
-.login .form-label {
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-.login .form-control {
-    margin-bottom: 10px;
-}
+
 
 .nav-logo {
   display: flex;
@@ -249,10 +252,10 @@ body{
 
 @media screen and (min-width: 1024px) {
   .login {
-      padding-top: 300px;
+      padding-top: 200px;
   }
   .product-detail{
       padding-top: 80px;
-      padding-bottom: 150px;
+      padding-bottom: 200px;
   }
 }

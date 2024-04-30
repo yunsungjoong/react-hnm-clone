@@ -2,19 +2,10 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-
+import styled from "styled-components";
 const Navbar = ({ setAuthenticate, authenticate }) => {
-    const menuList = [
-        "여성",
-        "Divided",
-        "남성",
-        "신생아/유아",
-        "아동",
-        "H&M Home",
-        "Sale",
-        "지속 가능성"
-    ];
-
+    const menuList = [ "Women","Men","Baby","Kids", "H&M HOME", "Sport", "Sale", "지속가능성" ];
+    const headerList = ["고객 서비스","뉴스레터","매장 찾기"];
     let [width, setWidth] = useState(0);
     const navigate = useNavigate();
 
@@ -50,6 +41,14 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                     <div className="burger-menu hide">
                         <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
                     </div>
+                    {/* <div style={{}}>
+                        <div>
+                            {headerList.map((headerMenu, index) => (
+                                <button key={index}>{headerMenu}</button>
+                            ))}
+                        </div>
+                    </div> */}
+                    
                     {/* 검색바 */}
                     <div className="search-box">
                         {/* input-container */}
@@ -57,15 +56,15 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
                         <input type="text" placeholder="제품검색" onKeyUp={(e) => search(e)}  />
                     </div>
                     {authenticate ? (
-                        <div onClick={handleLogout}>
+                        <Utill onClick={handleLogout}>
                             <FontAwesomeIcon icon={faUser} />
-                            <span style={{ cursor:"pointer" }}>로그아웃</span>
-                        </div>
+                            <span className="utill-text" style={{ cursor:"pointer" }}>로그아웃</span>
+                        </Utill>
                     ) : (
-                        <div onClick={() => navigate("/login")}>
+                        <Utill onClick={() => navigate("/login")}>
                             <FontAwesomeIcon icon={faUser} />
-                            <span style={{ cursor:"pointer" }}>로그인</span>
-                        </div>
+                            <span className="utill-text" style={{ cursor:"pointer" }}>로그인</span>
+                        </Utill>
                     )}
                 
             </div>
@@ -89,3 +88,20 @@ const Navbar = ({ setAuthenticate, authenticate }) => {
 }
 
 export default Navbar;
+
+
+const Utill = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 12px;
+
+    .utill-text {
+        margin-left: 8px;
+        transition: 0.2s;
+    }
+
+    &:hover .utill-text{
+        color: var(--base-active);
+    }
+`;
