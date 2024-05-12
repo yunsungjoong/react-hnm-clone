@@ -5,17 +5,17 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { productAction } from "../redux/actions/productAction";
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = () => {
-    const [ productList, setProductList] = useState([]);
+    const productList = useSelector(state=>state.productList)
     const [query, setQuery] = useSearchParams();
-    const getProduct = async () => {
+    const dispatch = useDispatch()
+    const getProduct = () => {
         let searchQuery = query.get('q') || "";
-        let url = `https://my-json-server.typicode.com/yunsungjoong/react-hnm-clone/products?q=${searchQuery}`;  // `http://localhost:4000/products?q=${searchQuery}`; 
-        
-        let response = await fetch(url);
-        let data = await response.json();
-        setProductList(data);
+        console.log("쿼리값은?", searchQuery);
+        dispatch(productAction.getProducts(searchQuery));
     }
     useEffect(() => {
         getProduct();
