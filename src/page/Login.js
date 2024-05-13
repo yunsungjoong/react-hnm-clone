@@ -3,27 +3,27 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
 
-const Login = ({setAuthenticate}) => {
-    // 체크
-    const [email, setEmail] = useState('');
+const Login = ({setAuthenticate}) => { // 체크
+    const [id, setId] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
+    const dispatch = useDispatch();
     const loginUser = (e) => {
-        if(email === '' || password === '') {
+        if(id === '' || password === '') {
             alert('Email과 password를 입력해주세요.');
             return;
         };
         e.preventDefault();
+        
         setAuthenticate(true);
         console.log("로그인 되었습니다.");
+        dispatch(authenticateAction.login(id,password))
         navigate('/')
-    }
-
+    };
     return (
-        
-            
         <Container className="login">
             <Form onSubmit={(e)=>loginUser(e)}>
                 <Form.Group className="mb-3"  controlId="formBasicEmail">
@@ -31,8 +31,8 @@ const Login = ({setAuthenticate}) => {
                     <Form.Control 
                         type="text" 
                         placeholder="E-mail을 작성해 주세요." 
-                        value={email}
-                        onChange={(e) => {setEmail(e.target.value)}}
+                        value={id}
+                        onChange={(e) => {setId(e.target.valueAsDate)}}
                     />
                     <Form.Text className="text-muted">
                         저희 H&M은 절대 고객의 개인정보를 공개 및 공유하지 않습니다.

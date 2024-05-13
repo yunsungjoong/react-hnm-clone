@@ -22,7 +22,7 @@ import Footer from './component/Footer';
 7. 상품을 검색할 수 있다.
 */
 function App() {
-  const[authenticate, setAuthenticate] = useState(false) // true면 로그인이false면 로그인이 안됨
+  const[authenticate, setAuthenticate] = useState(false) // true면 로그인 / false면 로그인이 안됨
   useEffect(()=> {
   },[authenticate])
   return (
