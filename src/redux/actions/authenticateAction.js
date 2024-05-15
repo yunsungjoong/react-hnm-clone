@@ -8,4 +8,4 @@ function login(id, password){
 }
 
 
-export const authenticateAction = { login };
+export const authenticateAction = { login };  
